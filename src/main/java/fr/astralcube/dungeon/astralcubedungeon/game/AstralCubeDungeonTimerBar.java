@@ -1,4 +1,4 @@
-package org.example.MODNAME.game;
+package fr.astralcube.dungeon.astralcubedungeon.game;
 
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.text.LiteralText;
@@ -6,10 +6,10 @@ import net.minecraft.text.Text;
 import xyz.nucleoid.plasmid.game.common.GlobalWidgets;
 import xyz.nucleoid.plasmid.game.common.widget.BossBarWidget;
 
-public final class MODCLASSTimerBar {
+public final class AstralCubeDungeonTimerBar {
     private final BossBarWidget widget;
 
-    public MODCLASSTimerBar(GlobalWidgets widgets) {
+    public AstralCubeDungeonTimerBar(GlobalWidgets widgets) {
         LiteralText title = new LiteralText("Waiting for the game to start...");
         this.widget = widgets.addBossBar(title, BossBar.Color.GREEN, BossBar.Style.NOTCHED_10);
     }

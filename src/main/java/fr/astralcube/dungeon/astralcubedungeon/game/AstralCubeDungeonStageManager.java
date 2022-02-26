@@ -1,4 +1,4 @@
-package org.example.MODNAME.game;
+package fr.astralcube.dungeon.astralcubedungeon.game;
 
 import com.google.common.collect.ImmutableSet;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
@@ -16,18 +16,18 @@ import net.minecraft.world.GameMode;
 
 import java.util.Set;
 
-public class MODCLASSStageManager {
+public class AstralCubeDungeonStageManager {
     private long closeTime = -1;
     public long finishTime = -1;
     private long startTime = -1;
     private final Object2ObjectMap<ServerPlayerEntity, FrozenPlayer> frozen;
     private boolean setSpectator = false;
 
-    public MODCLASSStageManager() {
+    public AstralCubeDungeonStageManager() {
         this.frozen = new Object2ObjectOpenHashMap<>();
     }
 
-    public void onOpen(long time, MODCLASSConfig config) {
+    public void onOpen(long time, AstralCubeDungeonConfig config) {
         this.startTime = time - (time % 20) + (4 * 20) + 19;
         this.finishTime = this.startTime + (config.timeLimitSecs * 20);
     }

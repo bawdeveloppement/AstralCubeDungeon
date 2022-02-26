@@ -1,4 +1,4 @@
-package org.example.MODNAME.game.map;
+package fr.astralcube.dungeon.astralcubedungeon.game.map;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
@@ -6,12 +6,12 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import xyz.nucleoid.map_templates.MapTemplate;
 import xyz.nucleoid.plasmid.game.world.generator.TemplateChunkGenerator;
 
-public class MODCLASSMap {
+public class AstralCubeDungeonMap {
     private final MapTemplate template;
-    private final MODCLASSMapConfig config;
+    private final AstralCubeDungeonMapConfig config;
     public BlockPos spawn;
 
-    public MODCLASSMap(MapTemplate template, MODCLASSMapConfig config) {
+    public AstralCubeDungeonMap(MapTemplate template, AstralCubeDungeonMapConfig config) {
         this.template = template;
         this.config = config;
     }

@@ -1,19 +1,19 @@
-package org.example.MODNAME.game.map;
+package fr.astralcube.dungeon.astralcubedungeon.game.map;
 
 import xyz.nucleoid.map_templates.MapTemplate;
 import net.minecraft.util.math.BlockPos;
 
-public class MODCLASSMapGenerator {
+public class AstralCubeDungeonMapGenerator {
 
-    private final MODCLASSMapConfig config;
+    private final AstralCubeDungeonMapConfig config;
 
-    public MODCLASSMapGenerator(MODCLASSMapConfig config) {
+    public AstralCubeDungeonMapGenerator(AstralCubeDungeonMapConfig config) {
         this.config = config;
     }
 
-    public MODCLASSMap build() {
+    public AstralCubeDungeonMap build() {
         MapTemplate template = MapTemplate.createEmpty();
-        MODCLASSMap map = new MODCLASSMap(template, this.config);
+        AstralCubeDungeonMap map = new AstralCubeDungeonMap(template, this.config);
 
         this.buildSpawn(template);
         map.spawn = new BlockPos(0,65,0);

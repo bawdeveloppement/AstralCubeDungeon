@@ -1,4 +1,4 @@
-package org.example.MODNAME.game;
+package fr.astralcube.dungeon.astralcubedungeon.game;
 
 import net.minecraft.util.math.Vec3d;
 import xyz.nucleoid.plasmid.game.GameSpace;
@@ -9,15 +9,15 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.GameMode;
-import org.example.MODNAME.MODCLASS;
-import org.example.MODNAME.game.map.MODCLASSMap;
+import fr.astralcube.dungeon.astralcubedungeon.AstralCubeDungeon;
+import fr.astralcube.dungeon.astralcubedungeon.game.map.AstralCubeDungeonMap;
 
-public class MODCLASSSpawnLogic {
+public class AstralCubeDungeonSpawnLogic {
     private final GameSpace gameSpace;
-    private final MODCLASSMap map;
+    private final AstralCubeDungeonMap map;
     private final ServerWorld world;
 
-    public MODCLASSSpawnLogic(GameSpace gameSpace, ServerWorld world, MODCLASSMap map) {
+    public AstralCubeDungeonSpawnLogic(GameSpace gameSpace, ServerWorld world, AstralCubeDungeonMap map) {
         this.gameSpace = gameSpace;
         this.map = map;
         this.world = world;
@@ -40,7 +40,7 @@ public class MODCLASSSpawnLogic {
     public void spawnPlayer(ServerPlayerEntity player) {
         BlockPos pos = this.map.spawn;
         if (pos == null) {
-            MODCLASS.LOGGER.error("Cannot spawn player! No spawn is defined in the map!");
+            AstralCubeDungeon.LOGGER.error("Cannot spawn player! No spawn is defined in the map!");
             return;
         }
 

@@ -1,4 +1,4 @@
-package org.example.MODNAME.game;
+package fr.astralcube.dungeon.astralcubedungeon.game;
 
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
@@ -8,38 +8,38 @@ import xyz.nucleoid.plasmid.game.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.GameMode;
-import org.example.MODNAME.game.map.MODCLASSMap;
-import org.example.MODNAME.game.map.MODCLASSMapGenerator;
+import fr.astralcube.dungeon.astralcubedungeon.game.map.AstralCubeDungeonMap;
+import fr.astralcube.dungeon.astralcubedungeon.game.map.AstralCubeDungeonMapGenerator;
 import xyz.nucleoid.plasmid.game.common.GameWaitingLobby;
 import xyz.nucleoid.plasmid.game.event.GameActivityEvents;
 import xyz.nucleoid.plasmid.game.event.GamePlayerEvents;
 import xyz.nucleoid.stimuli.event.player.PlayerDeathEvent;
 
-public class MODCLASSWaiting {
+public class AstralCubeDungeonWaiting {
     private final GameSpace gameSpace;
-    private final MODCLASSMap map;
-    private final MODCLASSConfig config;
-    private final MODCLASSSpawnLogic spawnLogic;
+    private final AstralCubeDungeonMap map;
+    private final AstralCubeDungeonConfig config;
+    private final AstralCubeDungeonSpawnLogic spawnLogic;
     private final ServerWorld world;
 
-    private MODCLASSWaiting(GameSpace gameSpace, ServerWorld world, MODCLASSMap map, MODCLASSConfig config) {
+    private AstralCubeDungeonWaiting(GameSpace gameSpace, ServerWorld world, AstralCubeDungeonMap map, AstralCubeDungeonConfig config) {
         this.gameSpace = gameSpace;
         this.map = map;
         this.config = config;
         this.world = world;
-        this.spawnLogic = new MODCLASSSpawnLogic(gameSpace, world, map);
+        this.spawnLogic = new AstralCubeDungeonSpawnLogic(gameSpace, world, map);
     }
 
-    public static GameOpenProcedure open(GameOpenContext<MODCLASSConfig> context) {
-        MODCLASSConfig config = context.config();
-        MODCLASSMapGenerator generator = new MODCLASSMapGenerator(config.mapConfig);
-        MODCLASSMap map = generator.build();
+    public static GameOpenProcedure open(GameOpenContext<AstralCubeDungeonConfig> context) {
+        AstralCubeDungeonConfig config = context.config();
+        AstralCubeDungeonMapGenerator generator = new AstralCubeDungeonMapGenerator(config.mapConfig);
+        AstralCubeDungeonMap map = generator.build();
 
         RuntimeWorldConfig worldConfig = new RuntimeWorldConfig()
                 .setGenerator(map.asGenerator(context.server()));
 
         return context.openWithWorld(worldConfig, (game, world) -> {
-            MODCLASSWaiting waiting = new MODCLASSWaiting(game.getGameSpace(), world, map, context.config());
+            AstralCubeDungeonWaiting waiting = new AstralCubeDungeonWaiting(game.getGameSpace(), world, map, context.config());
 
             GameWaitingLobby.addTo(game, config.playerConfig);
 
@@ -51,7 +51,7 @@ public class MODCLASSWaiting {
     }
 
     private GameResult requestStart() {
-        MODCLASSActive.open(this.gameSpace, this.world, this.map, this.config);
+        AstralCubeDungeonActive.open(this.gameSpace, this.world, this.map, this.config);
         return GameResult.ok();
     }
 
