@@ -14,7 +14,7 @@ public class AstralCubeDungeon implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger(ID);
 
     public static final GameType<AstralCubeDungeonConfig> TYPE = GameType.register(
-            new Identifier(ID, "astralcubedungeon"),
+            new Identifier(ID, "standard"),
             AstralCubeDungeonConfig.CODEC,
             AstralCubeDungeonWaiting::open
     );

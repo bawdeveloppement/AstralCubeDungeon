@@ -94,7 +94,6 @@ public class AstralCubeDungeonActive {
             ref.ifOnline(this.world, this::spawnParticipant);
         }
         this.stageManager.onOpen(this.world.getTime(), this.config);
-        // TODO setup logic
     }
 
     private void onClose() {
@@ -112,13 +111,11 @@ public class AstralCubeDungeonActive {
     }
 
     private ActionResult onPlayerDamage(ServerPlayerEntity player, DamageSource source, float amount) {
-        // TODO handle damage
         this.spawnParticipant(player);
         return ActionResult.FAIL;
     }
 
     private ActionResult onPlayerDeath(ServerPlayerEntity player, DamageSource source) {
-        // TODO handle death
         this.spawnParticipant(player);
         return ActionResult.FAIL;
     }
@@ -151,9 +148,7 @@ public class AstralCubeDungeonActive {
                 return;
         }
 
-        this.timerBar.update(this.stageManager.finishTime - time, this.config.timeLimitSecs * 20);
-
-        // TODO tick logic
+        this.timerBar.update(this.stageManager.finishTime - time, this.config.timeLimitMin * 20 * 60);
     }
 
     private void broadcastWin(WinResult result) {
@@ -179,7 +174,6 @@ public class AstralCubeDungeonActive {
 
         ServerPlayerEntity winningPlayer = null;
 
-        // TODO win result logic
         return WinResult.no();
     }
 

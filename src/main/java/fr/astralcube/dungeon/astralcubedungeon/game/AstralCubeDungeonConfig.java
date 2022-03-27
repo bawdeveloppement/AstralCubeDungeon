@@ -9,16 +9,16 @@ public class AstralCubeDungeonConfig {
     public static final Codec<AstralCubeDungeonConfig> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             PlayerConfig.CODEC.fieldOf("players").forGetter(config -> config.playerConfig),
             AstralCubeDungeonMapConfig.CODEC.fieldOf("map").forGetter(config -> config.mapConfig),
-            Codec.INT.fieldOf("time_limit_secs").forGetter(config -> config.timeLimitSecs)
+            Codec.INT.fieldOf("time_limit_min").forGetter(config -> config.timeLimitMin)
     ).apply(instance, AstralCubeDungeonConfig::new));
 
     public final PlayerConfig playerConfig;
     public final AstralCubeDungeonMapConfig mapConfig;
-    public final int timeLimitSecs;
+    public final int timeLimitMin;
 
-    public AstralCubeDungeonConfig(PlayerConfig players, AstralCubeDungeonMapConfig mapConfig, int timeLimitSecs) {
+    public AstralCubeDungeonConfig(PlayerConfig players, AstralCubeDungeonMapConfig mapConfig, int timeLimitMin) {
         this.playerConfig = players;
         this.mapConfig = mapConfig;
-        this.timeLimitSecs = timeLimitSecs;
+        this.timeLimitMin = timeLimitMin;
     }
 }

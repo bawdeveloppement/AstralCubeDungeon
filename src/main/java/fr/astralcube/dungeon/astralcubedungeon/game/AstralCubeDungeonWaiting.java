@@ -33,10 +33,10 @@ public class AstralCubeDungeonWaiting {
     public static GameOpenProcedure open(GameOpenContext<AstralCubeDungeonConfig> context) {
         AstralCubeDungeonConfig config = context.config();
         AstralCubeDungeonMapGenerator generator = new AstralCubeDungeonMapGenerator(config.mapConfig);
-        AstralCubeDungeonMap map = generator.build();
+        AstralCubeDungeonMap map = generator.build(context.server());
 
         RuntimeWorldConfig worldConfig = new RuntimeWorldConfig()
-                .setGenerator(map.asGenerator(context.server()));
+            .setGenerator(map.asGenerator(context.server()));
 
         return context.openWithWorld(worldConfig, (game, world) -> {
             AstralCubeDungeonWaiting waiting = new AstralCubeDungeonWaiting(game.getGameSpace(), world, map, context.config());
@@ -66,7 +66,7 @@ public class AstralCubeDungeonWaiting {
     }
 
     private void spawnPlayer(ServerPlayerEntity player) {
-        this.spawnLogic.resetPlayer(player, GameMode.ADVENTURE);
+        this.spawnLogic.resetPlayer(player, GameMode.SPECTATOR);
         this.spawnLogic.spawnPlayer(player);
     }
 }

@@ -29,7 +29,7 @@ public class AstralCubeDungeonStageManager {
 
     public void onOpen(long time, AstralCubeDungeonConfig config) {
         this.startTime = time - (time % 20) + (4 * 20) + 19;
-        this.finishTime = this.startTime + (config.timeLimitSecs * 20);
+        this.finishTime = this.startTime + (config.timeLimitMin * 20 * 60);
     }
 
     public IdleTickResult tick(long time, GameSpace space) {
